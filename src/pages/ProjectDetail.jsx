@@ -3,6 +3,24 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import TagPill from '../components/TagPill'
 import ImageGallery from '../components/ImageGallery'
 
+function toEmbedUrl(url) {
+  if (!url) return ''
+  try {
+    const u = new URL(url)
+    // https://www.youtube.com/watch?v=ID
+    if (u.hostname.includes('youtube.com') && u.searchParams.get('v')) {
+      return `https://www.youtube.com/embed/${u.searchParams.get('v')}`
+    }
+    // https://youtu.be/ID
+    if (u.hostname === 'youtu.be') {
+      return `https://www.youtube.com/embed${u.pathname}`
+    }
+  } catch {
+    // not a valid URL — return as-is (user may have typed embed URL directly)
+  }
+  return url
+}
+
 export default function ProjectDetail({ data }) {
   const { id } = useParams()
   const project = data.projects.find(p => p.id === id)
@@ -47,9 +65,10 @@ export default function ProjectDetail({ data }) {
           {videoUrl && (
             <iframe
               className="project-detail__video"
-              src={videoUrl}
+              src={toEmbedUrl(videoUrl)}
               title={title}
-              frameBorder="0"
+              style={{ border: 'none' }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
           )}
