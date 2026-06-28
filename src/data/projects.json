@@ -1,0 +1,88 @@
+{
+  "profile": {
+    "name": "Lorenzo Rizzo",
+    "title": "Data Analyst",
+    "bio": "Studente di Data Science al Politecnico di Torino con una base in Fisica e competenze pratiche in SQL, Python e Tableau. Ho \nsviluppato Domina, una piattaforma di market intelligence immobiliare, seguendo l'intero ciclo dalla customer discovery al \ndeployment. Cerco un ruolo da Data Analyst dove trasformare dati complessi in insight azionabili. ",
+    "email": "lore.mail.gl@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/lorerizzo97",
+    "github": "https://github.com/BraHKet",
+    "photoUrl": ""
+  },
+  "projects": [
+    {
+      "id": "churn-prediction",
+      "title": "Customer Churn Prediction",
+      "shortDescription": "Binary classification model identifying at-risk customers 30 days in advance.",
+      "fullDescription": "This project addressed a critical business problem: identifying customers likely to churn before they cancel their subscription. I built a full ML pipeline using historical transactional data across 18 months.\n\nThe methodology involved feature engineering from raw event logs, handling severe class imbalance via SMOTE, and comparing Logistic Regression, Random Forest, and XGBoost. The final model used an ensemble approach with calibrated probabilities.\n\nDeployment was handled as a weekly batch job feeding results into a CRM dashboard, enabling the retention team to prioritize outreach.",
+      "tags": [
+        "Python",
+        "Scikit-learn",
+        "XGBoost",
+        "SQL",
+        "Tableau"
+      ],
+      "results": [
+        "AUC-ROC of 0.91 on held-out test set",
+        "Reduced churn by 18% in the first quarter post-deployment",
+        "Processed 2.3M customer records per batch run"
+      ],
+      "imageUrl": "",
+      "images": [],
+      "videoUrl": "",
+      "repoUrl": "https://github.com/lorenzo-rizzo/churn-prediction",
+      "liveUrl": "",
+      "period": "Jan 2024 – Mar 2024",
+      "featured": true
+    },
+    {
+      "id": "sales-dashboard",
+      "title": "Executive Sales Dashboard",
+      "shortDescription": "Real-time Power BI dashboard consolidating five data sources into one view.",
+      "fullDescription": "The sales leadership team was working from five disconnected spreadsheets updated manually each Monday. This project consolidated those sources — Salesforce, ERP exports, a Google Sheet forecast model, and two internal databases — into a single live Power BI report.\n\nThe data pipeline was built in Python using scheduled Azure Data Factory runs. Data modeling followed a star-schema approach with a central fact table and conformed dimensions for region, product, and time.\n\nI conducted three workshops with stakeholders to validate KPI definitions before building, which significantly reduced revision cycles.",
+      "tags": [
+        "Power BI",
+        "Python",
+        "Azure",
+        "SQL",
+        "DAX"
+      ],
+      "results": [
+        "Reduced weekly reporting preparation time from 6 hours to 20 minutes",
+        "Adopted by 40+ users across 3 regional offices",
+        "Identified a €280K revenue leakage previously hidden in data silos"
+      ],
+      "imageUrl": "",
+      "images": [],
+      "videoUrl": "",
+      "repoUrl": "",
+      "liveUrl": "",
+      "period": "Sep 2023 – Nov 2023",
+      "featured": true
+    },
+    {
+      "id": "nlp-reviews",
+      "title": "Product Review Sentiment Analysis",
+      "shortDescription": "NLP pipeline extracting feature-level sentiment from 50K+ e-commerce reviews.",
+      "fullDescription": "Rather than a simple positive/negative classifier, this project aimed to extract granular, aspect-level sentiment — understanding not just that a review is negative, but which product attribute (delivery speed, packaging, quality) is causing dissatisfaction.\n\nI used a fine-tuned BERT model on a domain-specific labeled dataset of 8,000 reviews, combined with a rule-based aspect extraction layer. Results were stored in a PostgreSQL database and visualized in a Streamlit app.\n\nThe product team used findings to prioritize the Q3 packaging redesign, which later contributed to a 0.4-star average rating improvement.",
+      "tags": [
+        "Python",
+        "BERT",
+        "HuggingFace",
+        "PostgreSQL",
+        "Streamlit"
+      ],
+      "results": [
+        "Aspect-level F1 score of 0.84 across 6 product categories",
+        "Processed 50,000+ reviews in under 4 minutes",
+        "Directly influenced Q3 product roadmap decisions"
+      ],
+      "imageUrl": "",
+      "images": [],
+      "videoUrl": "",
+      "repoUrl": "https://github.com/lorenzo-rizzo/nlp-reviews",
+      "liveUrl": "",
+      "period": "Apr 2023 – Jun 2023",
+      "featured": false
+    }
+  ]
+}
