@@ -706,6 +706,69 @@ input, textarea, select {
   background: var(--bg);
 }
 
+/* project row with reorder arrows */
+.admin-sidebar__row {
+  display: flex;
+  align-items: center;
+  border-left: 2px solid transparent;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.admin-sidebar__row:hover {
+  background: var(--bg);
+}
+
+.admin-sidebar__row--active {
+  border-left-color: var(--heading);
+  background: var(--bg);
+}
+
+.admin-sidebar__item-title {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  padding: 8px var(--sp-1);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--heading);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-sidebar__arrows {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-right: 4px;
+  gap: 1px;
+}
+
+.admin-sidebar__arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.65rem;
+  color: var(--muted);
+  padding: 1px 4px;
+  line-height: 1;
+  font-family: var(--font);
+  transition: color var(--transition);
+}
+
+.admin-sidebar__arrow:hover:not(:disabled) {
+  color: var(--heading);
+}
+
+.admin-sidebar__arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
 .admin-sidebar__new {
   display: block;
   width: calc(100% - var(--sp-3));

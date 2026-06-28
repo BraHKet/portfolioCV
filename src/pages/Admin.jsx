@@ -437,6 +437,15 @@ function AdminPanel({ initialData, onDataChange }) {
     setActiveId('__profile__')
   }
 
+  function handleReorder(id, direction) {
+    const idx = data.projects.findIndex(p => p.id === id)
+    const next = idx + direction
+    if (next < 0 || next >= data.projects.length) return
+    const projects = [...data.projects]
+    ;[projects[idx], projects[next]] = [projects[next], projects[idx]]
+    persist({ ...data, projects })
+  }
+
   function handleNewProject() {
     const blank = {
       id: `project-${Date.now()}`,
@@ -476,6 +485,7 @@ function AdminPanel({ initialData, onDataChange }) {
         activeId={activeId}
         onSelect={setActiveId}
         onNew={handleNewProject}
+        onReorder={handleReorder}
       />
       <div className="admin-main">
         {activeId === '__profile__' && (
