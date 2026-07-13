@@ -6,6 +6,7 @@ import ProjectDetail from './pages/ProjectDetail'
 import Admin from './pages/Admin'
 import defaultData from './data/projects.json'
 import './styles/global.css'
+import { Analytics } from "@vercel/analytics/next"
 
 const STORAGE_KEY = 'portfolio_data'
 
